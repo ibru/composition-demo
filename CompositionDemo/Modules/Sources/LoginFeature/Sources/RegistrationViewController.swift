@@ -8,6 +8,7 @@
 import UIKit
 import Networking
 import Core
+import Security
 
 open class RegistrationViewController: UIViewController {
     
@@ -68,16 +69,27 @@ open class RegistrationViewController: UIViewController {
             return
         }
         
-        registrationAPI.registerEmail(email) { [weak self] result in
-            switch result {
-            case .success:
-                self?.showRegistrationSuccess()
-                
-            case let .failure(error):
-                self?.showError(error)
+        do {
+            let domain = try DomainManager.domainForEmail(email)
+            DomainManager.canRegisterFromDomain(domain) { [weak self] result in
+                switch result {
+                case .success:
+                    self?.registrationAPI.registerEmail(email) { [weak self] result in
+                        switch result {
+                        case .success:
+                            self?.showRegistrationSuccess()
+                            
+                        case let .failure(error):
+                            self?.showError(error)
+                        }
+                    }
+                case let .failure(error):
+                    self?.showError(error)
+                }
             }
+        } catch {
+            showError(error)
         }
-        
     }
     
     private func showInvalidEmail() {}

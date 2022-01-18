@@ -11,8 +11,13 @@ import LoginFeature
 
 extension RegistrationAPI: RegistrationService {
     public func registerUser(withEmail emailAddress: String, completion: @escaping (Result<Void, RegistrationError>) -> Void) {
-        self.registerEmail(emailAddress) {
-            completion($0.mapError { RegistrationError.serverError($0) })
+        Task { [weak self] in
+            do {
+                try await self?.registerEmail(emailAddress)
+                completion(.success(()))
+            } catch {
+                completion(.failure(.serverError(error)))
+            }
         }
     }
 }

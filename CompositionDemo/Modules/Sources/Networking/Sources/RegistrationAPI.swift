@@ -8,8 +8,7 @@
 public final class RegistrationAPI {
     public init() {}
     
-    public func registerEmail(_ email: String, completion: @escaping (Result<Void, Error>) -> Void) {
+    public func registerEmail(_ email: String) async throws {
         print("Sending Registration API request for email: \(email) ...")
-        completion(.success(()))
     }
 }

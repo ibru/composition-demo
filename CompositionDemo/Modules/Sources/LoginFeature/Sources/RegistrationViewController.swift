@@ -63,6 +63,18 @@ open class RegistrationViewController: UIViewController {
     @IBAction func registerButtonTouched() {
         guard let email = emailTextField.text else { return }
         
+        registerWith(email: email)
+    }
+    
+    private func showInvalidEmail() {}
+    
+    private func showError(_ error: Error) {}
+    
+    private func showRegistrationSuccess() {}
+}
+
+extension RegistrationViewController {
+    func registerWith(email: String) {
         guard emailValidator.isEmailValid(email) else {
             showInvalidEmail()
             return
@@ -77,12 +89,5 @@ open class RegistrationViewController: UIViewController {
                 self?.showError(error)
             }
         }
-        
     }
-    
-    private func showInvalidEmail() {}
-    
-    private func showError(_ error: Error) {}
-    
-    private func showRegistrationSuccess() {}
 }

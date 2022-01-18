@@ -68,16 +68,14 @@ open class RegistrationViewController: UIViewController {
             return
         }
         
-        registrationAPI.registerEmail(email) { [weak self] result in
-            switch result {
-            case .success:
+        Task { [weak self, registrationAPI] in
+            do {
+                try await registrationAPI.registerEmail(email)
                 self?.showRegistrationSuccess()
-                
-            case let .failure(error):
+            } catch {
                 self?.showError(error)
             }
         }
-        
     }
     
     private func showInvalidEmail() {}

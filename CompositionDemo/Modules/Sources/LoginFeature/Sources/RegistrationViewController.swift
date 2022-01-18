@@ -63,7 +63,7 @@ open class RegistrationViewController: UIViewController {
     @IBAction func registerButtonTouched() {
         guard let email = emailTextField.text else { return }
         
-        guard emailValidator.isEmailValid(email) else {
+        guard emailValidator.isEmailValid(email, for: [.regex]) else {
             showInvalidEmail()
             return
         }

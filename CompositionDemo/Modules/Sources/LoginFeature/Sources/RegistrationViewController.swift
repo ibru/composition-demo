@@ -9,10 +9,18 @@ import UIKit
 import Networking
 import Core
 
+public enum RegistrationError: Error {
+    case invalidEmail
+    case serverError(Error)
+}
+
+public protocol RegistrationService {
+    func registerUser(withEmail emailAddress: String, completion: @escaping (Result<Void, RegistrationError>) -> Void)
+}
+
 open class RegistrationViewController: UIViewController {
     
-    private let emailValidator: EmailValidator
-    private let registrationAPI: RegistrationAPI
+    private let registrationService: RegistrationService
     
     private lazy var emailTextField: UITextField = {
         let textField = UITextField()
@@ -31,9 +39,8 @@ open class RegistrationViewController: UIViewController {
         return button
     }()
     
-    public init(emailValidator: EmailValidator, registrationAPI: RegistrationAPI) {
-        self.emailValidator = emailValidator
-        self.registrationAPI = registrationAPI
+    public init(registrationService: RegistrationService) {
+        self.registrationService = registrationService
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -63,21 +70,21 @@ open class RegistrationViewController: UIViewController {
     @IBAction func registerButtonTouched() {
         guard let email = emailTextField.text else { return }
         
-        guard emailValidator.isEmailValid(email) else {
-            showInvalidEmail()
-            return
-        }
-        
-        registrationAPI.registerEmail(email) { [weak self] result in
+        registrationService.registerUser(withEmail: email) { [weak self] result in
             switch result {
             case .success:
                 self?.showRegistrationSuccess()
                 
             case let .failure(error):
-                self?.showError(error)
+                switch error {
+                case .invalidEmail:
+                    self?.showInvalidEmail()
+                
+                case let .serverError(error):
+                    self?.showError(error)
+                }
             }
         }
-        
     }
     
     private func showInvalidEmail() {}

@@ -12,6 +12,6 @@ import LoginFeature
 
 final class RegistrationFactory {
     func makeViewController(emailValidator: EmailValidator, registrationAPI: RegistrationAPI) -> UIViewController {
-        RegistrationViewController(registrationService: emailValidator)
+        RegistrationViewController(registrationService: registrationAPI)
     }
 }

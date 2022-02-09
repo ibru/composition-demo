@@ -14,14 +14,7 @@ let package = Package(
     ],
     dependencies: [],
     targets: [
-        .target(
-            name: "LoginFeature",
-            dependencies: [
-                "Networking",
-                "Core"
-            ],
-            path: "Sources/LoginFeature/Sources"
-        ),
+        .target(name: "LoginFeature", path: "Sources/LoginFeature/Sources"),
         .target(name: "Networking", path: "Sources/Networking/Sources"),
         .target(name: "Core", path: "Sources/Core/Sources"),
         .target(name: "Security", path: "Sources/Security/Sources")

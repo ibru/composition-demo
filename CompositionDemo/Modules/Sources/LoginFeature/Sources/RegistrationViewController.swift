@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import Networking
-import Core
 
 public enum RegistrationError: Error {
     case invalidEmail

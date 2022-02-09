@@ -28,3 +28,9 @@ final class AppendingRegistrationService: RegistrationService {
         }
     }
 }
+
+extension RegistrationService {
+    func appending(service appendedService: RegistrationService) -> RegistrationService {
+        AppendingRegistrationService(initialService: self, appendedService: appendedService)
+    }
+}

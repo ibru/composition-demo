@@ -68,6 +68,18 @@ open class RegistrationViewController: UIViewController {
     @IBAction func registerButtonTouched() {
         guard let email = emailTextField.text else { return }
         
+        registerWith(email: email)
+    }
+    
+    private func showInvalidEmail() {}
+    
+    private func showError(_ error: Error) {}
+    
+    private func showRegistrationSuccess() {}
+}
+
+extension RegistrationViewController {
+    func registerWith(email: String) {
         registrationService.registerUser(withEmail: email) { [weak self] result in
             switch result {
             case .success:
@@ -84,10 +96,4 @@ open class RegistrationViewController: UIViewController {
             }
         }
     }
-    
-    private func showInvalidEmail() {}
-    
-    private func showError(_ error: Error) {}
-    
-    private func showRegistrationSuccess() {}
 }

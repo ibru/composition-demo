@@ -11,7 +11,7 @@ import LoginFeature
 
 extension EmailValidator: RegistrationService {
     public func registerUser(withEmail emailAddress: String, completion: @escaping (Result<Void, RegistrationError>) -> Void) {
-        guard isEmailValid(emailAddress) else {
+        guard isEmailValid(emailAddress, for: [.regex]) else {
             completion(.failure(.invalidEmail))
             return
         }

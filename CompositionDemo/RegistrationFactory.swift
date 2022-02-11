@@ -14,8 +14,8 @@ final class RegistrationFactory {
     func makeViewController(emailValidator: EmailValidator, registrationAPI: RegistrationAPI) -> UIViewController {
         RegistrationViewController(
             registrationService: emailValidator
-                .appending(service: WhitelistedDomainsRegistrationAdapter())
                 .appending(service: registrationAPI)
+                .appending(service: WhitelistedDomainsRegistrationAdapter())
         )
     }
 }

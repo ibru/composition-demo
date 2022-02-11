@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4856ED8C27B4200600663E06 /* WhitelistedDomainsRegistrationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4856ED8B27B4200600663E06 /* WhitelistedDomainsRegistrationAdapter.swift */; };
+		4856ED9127B63DDA00663E06 /* FallbackRegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4856ED9027B63DDA00663E06 /* FallbackRegistrationService.swift */; };
 		488D7AAD279EDCBF00D92696 /* EmailValidator+RegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D7AAC279EDCBF00D92696 /* EmailValidator+RegistrationService.swift */; };
 		488D7AAF279EDE2100D92696 /* RegistrationAPI+RegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D7AAE279EDE2100D92696 /* RegistrationAPI+RegistrationService.swift */; };
 		488D7AB2279EE21000D92696 /* AppendingRegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D7AB1279EE21000D92696 /* AppendingRegistrationService.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		4856ED8B27B4200600663E06 /* WhitelistedDomainsRegistrationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistedDomainsRegistrationAdapter.swift; sourceTree = "<group>"; };
+		4856ED9027B63DDA00663E06 /* FallbackRegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackRegistrationService.swift; sourceTree = "<group>"; };
 		488D7AAC279EDCBF00D92696 /* EmailValidator+RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmailValidator+RegistrationService.swift"; sourceTree = "<group>"; };
 		488D7AAE279EDE2100D92696 /* RegistrationAPI+RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegistrationAPI+RegistrationService.swift"; sourceTree = "<group>"; };
 		488D7AB1279EE21000D92696 /* AppendingRegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppendingRegistrationService.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				488D7AB1279EE21000D92696 /* AppendingRegistrationService.swift */,
+				4856ED9027B63DDA00663E06 /* FallbackRegistrationService.swift */,
 				488D7AAC279EDCBF00D92696 /* EmailValidator+RegistrationService.swift */,
 				488D7AAE279EDE2100D92696 /* RegistrationAPI+RegistrationService.swift */,
 				4856ED8B27B4200600663E06 /* WhitelistedDomainsRegistrationAdapter.swift */,
@@ -178,6 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4856ED9127B63DDA00663E06 /* FallbackRegistrationService.swift in Sources */,
 				488D7AB2279EE21000D92696 /* AppendingRegistrationService.swift in Sources */,
 				488D7AAF279EDE2100D92696 /* RegistrationAPI+RegistrationService.swift in Sources */,
 				4856ED8C27B4200600663E06 /* WhitelistedDomainsRegistrationAdapter.swift in Sources */,

@@ -2,6 +2,8 @@
 
 In this demo app I explore how SOLID principles can solve an issue of multiple teams working on same feature possibly creating merge conflict.
 
+[You can also read Medium article for deeper explanation.](https://medium.com/@jiri.urbasek/applying-solid-principles-in-ios-development-74d197dc8d7b)
+
 The demo app exhibits a `RegistrationViewController`, which is supposed to perform a user registration action. On call of`registerButtonTouched()` IBAction it performs local email validation and sends API request to register new user.
 
 ## Common implementation approach, not using SOLID
